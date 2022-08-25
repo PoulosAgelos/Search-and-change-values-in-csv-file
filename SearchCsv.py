@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import csv
 from csv import writer
+import pandas as pd
 
 def appendNewRow(csvFileName, elementsToAppend):
     # open the csv file in the append mode
@@ -14,8 +15,12 @@ def appendNewRow(csvFileName, elementsToAppend):
 file = open(r'C:\Users\...\filename.csv') #read the file
 csvreader = csv.reader(file)
 counter=0
-rows= 1000
-columns = 1000
+df = pd.read_csv(r'C:\Users\...\filename.csv',low_memory=False) #===> reads in all the rows, but skips the first one as it is a header.
+
+rows=len(df.axes[0]) #===> Axes of 0 is for a row
+columns=len(df.axes[1]) #===> Axes of 0 is for a column
+
+
 #rows of file
 for i in range(rows):
     flag = False

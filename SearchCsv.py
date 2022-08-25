@@ -27,6 +27,7 @@ for i in range(rows):
         # check SSS
         if(header2[j]=="strvalue") or flag:
             #print("the line is:",i)
+            counter+=1
             flag=True
 
         if j>9:
@@ -41,7 +42,7 @@ for i in range(rows):
 
     appendNewRow(r'C:\Users\...\finalfile.csv',header2)   #call append function
 
-#numbers of row with SSS
+#numbers of row with strvalue
 print(counter)
 file.close()
 
